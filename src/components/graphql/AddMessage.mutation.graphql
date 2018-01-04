@@ -1,0 +1,6 @@
+mutation AddMessage($input: MessageInput) {
+  addMessage(input: $input) {
+    id
+    text
+  }
+}
