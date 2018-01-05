@@ -17,11 +17,8 @@ export const Authenticated = ({ loading, auth }) => {
 
 const props = ({ data: { loading, currentUser }}) => {
   if (loading) {
-    return ({ loading, auth: false })
+    return ({ loading, auth: false, currentUser: {} })
   }
-  // console.log('props', props)
-  // const authenticated = currentUser ? 
-  // console.log('cur', currentUser)
   return {
     loading,
     currentUser,

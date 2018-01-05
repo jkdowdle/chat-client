@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router'
 import { compose, graphql } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
 
@@ -39,11 +40,12 @@ export const Signin = ({ signin }) => (
     )}
   </Form>
 )
-const props = ({ mutate, ownProps }) => ({
+const props = ({ mutate, ownProps: { history: { push }, location: { state }} }) => {
+  return ({
   signin: (input) => 
     mutate({ variables: { input } })
-      // .then(res => window.location = '/')
-})
+      .then(() => push(state && state.from ? state.from.pathname : '/' ))
+})}
 
 const withSignin = graphql(
   SIGNIN_MUTATION,
@@ -51,6 +53,7 @@ const withSignin = graphql(
 )
 
 const enhance = compose(
+  withRouter,
   withSignin
 )
 

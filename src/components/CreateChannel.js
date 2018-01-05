@@ -6,7 +6,7 @@ import CREATE_CHANNEL_MUTATION from './graphql/CreateChannel.mutation.graphql'
 
 export const CreateChannel = (props) => (
   <div>
-    {console.log('props', props)}
+    {/* {console.log('props', props)} */}
   </div>
 )
 
@@ -16,7 +16,7 @@ export const withUserId = graphql(
 
 // const props = ({ mutate, ownProps: { data: { loading, currentUser: { id }}}}) => {
 const props = (props) => {
-  console.log('p', props)
+  // console.log('p', props)
   return ({
   createChannel: (input) => ({})
     // mutate({ variables: { input: { userId: loading && id, ...input } } })

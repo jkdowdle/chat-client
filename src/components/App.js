@@ -1,28 +1,34 @@
 import React, { Fragment } from 'react'
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom'
 
+import AuthRoute from './AuthRoute'
+import Nav from './Nav'
 import Authenticated from './Authenticated'
 import Signup from './Signup'
 import Signin from './Signin'
-import Signout from './Signout'
 import Channels from './Channels'
-import CreateChannel from './CreateChannel'
+import Home from './Home'
 
 export const App = () => {
   return (
-    <Fragment>
-      <h2>App</h2>
-      <Authenticated />
-      <br />
-      <Channels />
-      <br />
-      <Signup />
-      <br />
-      <Signin />
-      <br />
-      <Signout />
-      <br />
-      <CreateChannel />
-    </Fragment>
+    <Router>
+      <Fragment>
+        <Nav />
+        <Route exact path='/' component={Home} />
+        <AuthRoute path='/chat-channels' component={Channels} />
+        <Route path='/signup' component={Signup} />
+        <Route path='/signin' component={Signin} />
+
+        {/* <br />
+        <Channels />
+        <br />
+        <CreateChannel /> */}
+
+      </Fragment>
+    </Router>
   )
 }
 
