@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
+import Authenticated from './Authenticated'
 import Signup from './Signup'
 import Signin from './Signin'
 import Signout from './Signout'
 import Channels from './Channels'
+import CreateChannel from './CreateChannel'
 
 export const App = () => {
   return (
-    <div>
+    <Fragment>
       <h2>App</h2>
+      <Authenticated />
+      <br />
       <Channels />
       <br />
       <Signup />
@@ -16,7 +20,9 @@ export const App = () => {
       <Signin />
       <br />
       <Signout />
-    </div>
+      <br />
+      <CreateChannel />
+    </Fragment>
   )
 }
 
