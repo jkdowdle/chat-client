@@ -1,20 +1,21 @@
 import React from 'react'
 import { compose, graphql } from 'react-apollo'
+import { withRouter } from 'react-router-dom'
 
 import SIGNOUT_MUTATION from './graphql/Signout.mutation.graphql'
 
 export const Signout = ({ signout }) => {
   return (
     <div>
-      <button onClick={signout}>Sigout</button>
+      <button onClick={signout}>Signout</button>
     </div>
   )
 }
 
-const props = ({ mutate, ownProps }) => ({
+const props = ({ mutate, ownProps: { history: { push } }}) => ({
   signout: () => 
     mutate()
-      .then((res) => console.log('res', res))
+      .then(() => push('/'))
 })
 
 const withSignout = graphql(
@@ -23,6 +24,7 @@ const withSignout = graphql(
 )
 
 const enhance = compose(
+  withRouter,
   withSignout
 )
 

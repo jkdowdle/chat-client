@@ -1,0 +1,13 @@
+query Channel($input: ChannelInput) {
+  channel(input: $input) {
+    id
+    name
+    feed {
+      id
+      text
+      from {
+        name
+      }
+    }
+  }
+}

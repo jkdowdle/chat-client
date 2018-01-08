@@ -1,24 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export const Message = ({ id, text, from: { name, email } }) => (
-  <div>
-    {text}
-    <div>
-      <span>{name} - {email}</span>
-    </div>
-  </div>
-)
-
-export const Channel = ({ id, name, feed }) => (
-  <div>
-    <h4>{name}</h4>
-    {feed.map((message) => <Message key={message.id} {...message} />)}
-  </div>
+export const ChannelListItem = ({ id, name, feed }) => (
+  <Link to={`/chat/${id}`}><h4>{name}</h4></Link>
 )
 
 export const ChannelsList = ({ channels }) => (
   <div>
-    {channels.map((channel) => <Channel key={channel.id} {...channel} />)}
+    {channels.map((channel) => <ChannelListItem key={channel.id} {...channel} />)}
   </div>
 )
 

@@ -1,4 +1,4 @@
-import { withCurrentUser } from './Authenticated'
+import withCurrentUser from './withCurrentUser'
 
 export const withAuth = withCurrentUser
 

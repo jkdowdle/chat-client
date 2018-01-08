@@ -1,6 +1,7 @@
 import React from 'react'
 import { compose, graphql } from 'react-apollo'
 import { Form, Field } from 'react-final-form'
+import { withRouter } from 'react-router'
 
 import SIGNUP_MUTATION from './graphql/Signup.mutation.graphql'
 
@@ -61,10 +62,10 @@ export const Signup = ({ signup }) => (
     )}
   </Form>
 )
-const props = ({ mutate, ownProps }) => ({
+const props = ({ mutate, ownProps: { history: { push }} }) => ({
   signup: (input) => 
     mutate({ variables: { input } })
-      // .then((res) => console.log('res', res))
+      .then((res) => push('/'))
 })
 
 const withSignup = graphql(
@@ -73,6 +74,7 @@ const withSignup = graphql(
 )
 
 const enhance = compose(
+  withRouter,
   withSignup
 )
 

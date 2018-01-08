@@ -6,10 +6,10 @@ import {
 
 import AuthRoute from './AuthRoute'
 import Nav from './Nav'
-import Authenticated from './Authenticated'
 import Signup from './Signup'
 import Signin from './Signin'
 import Channels from './Channels'
+import Channel from './Channel'
 import Home from './Home'
 
 export const App = () => {
@@ -19,6 +19,7 @@ export const App = () => {
         <Nav />
         <Route exact path='/' component={Home} />
         <AuthRoute path='/chat-channels' component={Channels} />
+        <AuthRoute path='/chat/:id' component={Channel} />
         <Route path='/signup' component={Signup} />
         <Route path='/signin' component={Signin} />
 
