@@ -10,7 +10,7 @@ export const Nav = ({ auth, currentUser: { name, ...currentUser } }) => (
     <ul>
       {auth && <li>Welcome {name}!</li>}
       <li><Link to='/'>Home</Link></li>
-      <li><Link to='/chat-channels'>Chat Channels</Link></li>
+      {auth && <li><Link to='/chat-channels'>Chat Channels</Link></li>}
       {!auth && <li><Link to='/signup'>Signup</Link></li>}
       {!auth && <li><Link to='/signin'>Signin</Link></li>}
       {auth && <li><Signout /></li>}

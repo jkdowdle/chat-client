@@ -4,6 +4,7 @@ import { withRouter } from 'react-router'
 
 import { Messages } from './Message'
 import CHANNEL_QUERY from './graphql/Channel.query.graphql'
+import AddMessage from './AddMessage'
 
 export const Channel = ({ data: { loading, channel: { ...channel } } }) => {
   if (loading) {
@@ -13,6 +14,7 @@ export const Channel = ({ data: { loading, channel: { ...channel } } }) => {
   return (
     <div>
       <h2>{channel.name}</h2>
+      <AddMessage channelId={channel.id} />
       <Messages feed={channel.feed}/>
     </div>
   )

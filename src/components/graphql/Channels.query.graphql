@@ -2,14 +2,14 @@ query Channels {
   channels {
     name
     id
-    feed {
-      id
-      text
-      from {
-        id
-        email
-        name
-      }
-    }
+    # feed {
+    #   id
+    #   text
+    #   from {
+    #     id
+    #     email
+    #     name
+    #   }
+    # }
   }
 }

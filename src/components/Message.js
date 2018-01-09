@@ -9,7 +9,7 @@ export const Message = ({ id, text, from: { name, email } }) => (
   </div>
 )
 
-export const Messages = ({ feed }) => {
+export const Messages = ({ feed = [] }) => {
   return (
     <Fragment>
       {feed.map((message) => <Message key={message.id} {...message} />)}
